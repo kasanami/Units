@@ -5,8 +5,8 @@ namespace Ksnm.Units
     /// <summary>
     /// 何らかの量
     /// </summary>
-    /// <typeparam name="T">数値型</typeparam>
-    public interface IQuantity<T> where T : INumber<T>
+    /// <typeparam name="TNumber">数値型</typeparam>
+    public interface IQuantity<TNumber> where TNumber : INumber<TNumber>
     {
         #region プロパティ
         /// <summary>
@@ -24,8 +24,13 @@ namespace Ksnm.Units
         /// <summary>
         /// 値
         /// </summary>
-        T Value { get; set; }
+        TNumber Value { get; set; }
         #endregion プロパティ
-        static virtual IQuantity<T> From(T value) { return new Quantity<T>(value); }
+        /// <summary>
+        /// 数値型からQuantityへ変換
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        static virtual IQuantity<TNumber> From(TNumber value) { return new Quantity<TNumber>(value); }
     }
 }
