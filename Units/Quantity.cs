@@ -5,19 +5,19 @@ namespace Ksnm.Units
     /// <summary>
     /// 何らかの量を表す
     /// </summary>
-    /// <typeparam name="T">値型</typeparam>
-    public class Quantity<T> : IEquatable<Quantity<T>>, IQuantity<T> where T : INumber<T>
+    /// <typeparam name="TNumber">値型</typeparam>
+    public class Quantity<TNumber> : IEquatable<Quantity<TNumber>>, IQuantity<TNumber> where TNumber : INumber<TNumber>
     {
         #region 
-        public static T One { get; } = T.One;
-        public static T Zero { get; } = T.Zero;
+        public static TNumber One { get; } = TNumber.One;
+        public static TNumber Zero { get; } = TNumber.Zero;
         #endregion
 
         #region プロパティ
         /// <summary>
         /// 値
         /// </summary>
-        public T Value { get; set; } = T.Zero;
+        public TNumber Value { get; set; } = TNumber.Zero;
         /// <summary>
         /// 記号（override用）
         /// </summary>
@@ -31,7 +31,7 @@ namespace Ksnm.Units
         /// <summary>
         /// 指定した値で初期化
         /// </summary>
-        public Quantity(T value)
+        public Quantity(TNumber value)
         {
             Value = value;
         }
@@ -44,9 +44,9 @@ namespace Ksnm.Units
         /// <returns>指定したオブジェクトが現在のオブジェクトと等しい場合は true。それ以外の場合は false。</returns>
         public override bool Equals(object obj)
         {
-            if (obj is Quantity<T>)
+            if (obj is Quantity<TNumber>)
             {
-                return Equals((Quantity<T>)obj);
+                return Equals((Quantity<TNumber>)obj);
             }
             return false;
         }
@@ -73,7 +73,7 @@ namespace Ksnm.Units
         /// </summary>
         /// <param name="other">このオブジェクトと比較するオブジェクト。</param>
         /// <returns>現在のオブジェクトが other パラメーターと等しい場合は true、それ以外の場合は false です。</returns>
-        public bool Equals(Quantity<T> other)
+        public bool Equals(Quantity<TNumber> other)
         {
             return Value.Equals(other.Value);
         }
@@ -82,16 +82,16 @@ namespace Ksnm.Units
         /// <summary>
         /// T型への明示的な変換を定義します。
         /// </summary>
-        public static explicit operator T(Quantity<T> quantity)
+        public static explicit operator TNumber(Quantity<TNumber> quantity)
         {
             return quantity.Value;
         }
         /// <summary>
         /// 暗黙的な変換を定義します。
         /// </summary>
-        public static implicit operator Quantity<T>(T value)
+        public static implicit operator Quantity<TNumber>(TNumber value)
         {
-            return new Quantity<T>(value);
+            return new Quantity<TNumber>(value);
         }
         #endregion 型変換
     }
