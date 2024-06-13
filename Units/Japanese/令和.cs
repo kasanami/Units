@@ -38,6 +38,10 @@ namespace Ksnm.Units.Japanese
         #endregion コンストラクタ
 
         #region 型変換
+        public static implicit operator 令和<TNumber>(TNumber value)
+        {
+            return new 令和<TNumber>(value);
+        }
         /// <summary>
         /// 明示的な変換を定義します。
         /// </summary>

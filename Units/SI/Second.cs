@@ -44,7 +44,6 @@ namespace Ksnm.Units.SI
         }
         #endregion コンストラクタ
 
-        #endregion プロパティ
         #region 演算子
         /// <summary>
         /// 乗算
@@ -54,6 +53,7 @@ namespace Ksnm.Units.SI
             return new Second<TNumber>(quantity.Value * value);
         }
         #endregion 演算子
+
         #region 型変換
         ///// <summary>
         ///// 他の型から、この型への暗黙的な変換を定義します。

@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Net.Http.Headers;
+using System.Numerics;
 
 namespace Ksnm.Units
 {
@@ -104,6 +105,11 @@ namespace Ksnm.Units
         /// 暗黙的な変換を定義します。
         /// </summary>
         public static implicit operator Quantity<TNumber, TSelf>(TNumber value) => Quantity<TNumber, TSelf>.From(value);
+        /// <summary>
+        /// 暗黙的な変換を定義します。
+        /// NOTE:結局派生先で定義する必要がある・・・
+        /// </summary>
+        public static implicit operator TSelf(Quantity<TNumber, TSelf> quantity) => quantity;
         #endregion 型変換
     }
 }
