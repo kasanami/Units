@@ -6,7 +6,10 @@ namespace Ksnm.Units
     /// 何らかの量
     /// </summary>
     /// <typeparam name="TNumber">数値型</typeparam>
-    public interface IQuantity<TNumber> where TNumber : INumber<TNumber>
+    /// <typeparam name="TSelf">派生先自身の型</typeparam>
+    public interface IQuantity<TNumber, TSelf>
+        where TNumber : INumber<TNumber>
+        where TSelf : Quantity<TNumber, TSelf>,new()
     {
         #region プロパティ
         /// <summary>
@@ -27,10 +30,8 @@ namespace Ksnm.Units
         TNumber Value { get; set; }
         #endregion プロパティ
         /// <summary>
-        /// 数値型からQuantityへ変換
+        /// 数値型からTSelfへ変換
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        static virtual IQuantity<TNumber> From(TNumber value) { return new Quantity<TNumber>(value); }
+        static abstract TSelf From(TNumber value);
     }
 }
