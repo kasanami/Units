@@ -77,7 +77,7 @@ namespace Ksnm.Units.SI
             return quantity.Value;
         }
         /// <summary>
-        /// 数値型への暗黙的な変換を定義します。
+        /// 数値型からの暗黙的な変換を定義します。
         /// </summary>
         public static implicit operator Second<TNumber>(TNumber value)
         {
