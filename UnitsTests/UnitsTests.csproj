@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Units\Units.csproj" />
+    <ProjectReference Include="..\Ksnm.Units\Ksnm.Units.csproj" />
   </ItemGroup>
 
   <ItemGroup>
