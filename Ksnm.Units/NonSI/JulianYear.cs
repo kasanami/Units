@@ -57,9 +57,16 @@ namespace Ksnm.Units.NonSI
         /// <summary>
         /// 乗算
         /// </summary>
-        public static JulianYear<TNumber> operator *(TNumber value, JulianYear<TNumber> quantity)
+        public static JulianYear<TNumber> operator *(JulianYear<TNumber> quantity, TNumber value)
         {
             return new JulianYear<TNumber>(quantity.Value * value);
+        }
+        /// <summary>
+        /// 乗算
+        /// </summary>
+        public static JulianYear<TNumber> operator *(TNumber value, JulianYear<TNumber> quantity)
+        {
+            return new JulianYear<TNumber>(value * quantity.Value);
         }
         #endregion 演算子
 

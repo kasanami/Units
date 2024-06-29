@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics.Metrics;
+using System.Numerics;
 
 namespace Ksnm.Units.SI
 {
@@ -48,9 +49,16 @@ namespace Ksnm.Units.SI
         /// <summary>
         /// 乗算
         /// </summary>
-        public static Metre<TNumber> operator *(TNumber value, Metre<TNumber> quantity)
+        public static Metre<TNumber> operator *(Metre<TNumber> quantity, TNumber value)
         {
             return new Metre<TNumber>(quantity.Value * value);
+        }
+        /// <summary>
+        /// 乗算
+        /// </summary>
+        public static Metre<TNumber> operator *(TNumber value, Metre<TNumber> quantity)
+        {
+            return new Metre<TNumber>(value * quantity.Value);
         }
         #endregion 演算子
 

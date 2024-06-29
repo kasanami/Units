@@ -48,9 +48,16 @@ namespace Ksnm.Units.SI
         /// <summary>
         /// 乗算
         /// </summary>
-        public static Second<TNumber> operator *(TNumber value, Second<TNumber> quantity)
+        public static Second<TNumber> operator *(Second<TNumber> quantity, TNumber value)
         {
             return new Second<TNumber>(quantity.Value * value);
+        }
+        /// <summary>
+        /// 乗算
+        /// </summary>
+        public static Second<TNumber> operator *(TNumber value, Second<TNumber> quantity)
+        {
+            return new Second<TNumber>(value * quantity.Value);
         }
         #endregion 演算子
 
