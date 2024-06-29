@@ -53,8 +53,12 @@ namespace Ksnm.Units
         /// </summary>
         /// <param name="obj">現在のオブジェクトと比較するオブジェクト。</param>
         /// <returns>指定したオブジェクトが現在のオブジェクトと等しい場合は true。それ以外の場合は false。</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
+            if (obj == null)
+            {
+                return false;
+            }
             if (obj is TSelf)
             {
                 return Equals((TSelf)obj);
@@ -84,16 +88,13 @@ namespace Ksnm.Units
         /// </summary>
         /// <param name="other">このオブジェクトと比較するオブジェクト。</param>
         /// <returns>現在のオブジェクトが other パラメーターと等しい場合は true、それ以外の場合は false です。</returns>
-        public bool Equals(TSelf other)
+        public bool Equals(TSelf? other)
         {
+            if (other == null)
+            {
+                return false;
+            }
             return Value.Equals(other.Value);
-        }
-
-        public static TSelf From(TNumber value)
-        {
-            var instance = new TSelf();
-            instance.Value = value;
-            return instance;
         }
         #endregion IEquatable override
         #region 型変換
@@ -101,10 +102,6 @@ namespace Ksnm.Units
         /// T型への明示的な変換を定義します。
         /// </summary>
         public static explicit operator TNumber(Quantity<TNumber, TSelf> quantity) => quantity.Value;
-        /// <summary>
-        /// 暗黙的な変換を定義します。
-        /// </summary>
-        public static implicit operator Quantity<TNumber, TSelf>(TNumber value) => Quantity<TNumber, TSelf>.From(value);
         /// <summary>
         /// 暗黙的な変換を定義します。
         /// NOTE:結局派生先で定義する必要がある・・・

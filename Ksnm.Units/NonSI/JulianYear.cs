@@ -86,12 +86,6 @@ namespace Ksnm.Units.NonSI
             return new JulianYear<TNumber>(value);
         }
         #endregion 型変換
-        /// <summary>
-        /// 数値型からQuantityへ変換
-        /// </summary>
-        public new static JulianYear<TNumber> From(TNumber value)
-        {
-            return new JulianYear<TNumber>(value);
-        }
+
     }
 }

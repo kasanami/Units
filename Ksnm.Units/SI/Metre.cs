@@ -78,14 +78,6 @@ namespace Ksnm.Units.SI
             return new Metre<TNumber>(value);
         }
         #endregion 型変換
-        /// <summary>
-        /// 数値型からQuantityへ変換
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public new static Metre<TNumber> From(TNumber value)
-        {
-            return new Metre<TNumber>(value);
-        }
+
     }
 }

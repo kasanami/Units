@@ -37,15 +37,6 @@ namespace Ksnm.Units.Japanese
         }
         #endregion コンストラクタ
 
-        /// <summary>
-        /// 数値型からQuantityへ変換
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static 昭和<TNumber> From(TNumber value)
-        {
-            return new 昭和<TNumber>(value);
-        }
         #region 型変換
         /// <summary>
         /// 暗黙的な変換

@@ -9,17 +9,17 @@ namespace Ksnm.Units
     /// <typeparam name="TSelf">派生先自身の型</typeparam>
     public interface IQuantity<TNumber, TSelf>
         where TNumber : INumber<TNumber>
-        where TSelf : Quantity<TNumber, TSelf>,new()
+        where TSelf : Quantity<TNumber, TSelf>, new()
     {
         #region プロパティ
         /// <summary>
         /// 名前
         /// </summary>
-        static string Name { get; }
+        static string Name { get; } = "";
         /// <summary>
         /// 記号
         /// </summary>
-        static string Symbol { get; }
+        static string Symbol { get; } = "";
         /// <summary>
         /// 量の種類
         /// </summary>
@@ -29,9 +29,15 @@ namespace Ksnm.Units
         /// </summary>
         TNumber Value { get; set; }
         #endregion プロパティ
+
         /// <summary>
         /// 数値型からTSelfへ変換
         /// </summary>
-        static abstract TSelf From(TNumber value);
+        public static virtual TSelf Create(TNumber value)
+        {
+            var instance = new TSelf();
+            instance.Value = value;
+            return instance;
+        }
     }
 }

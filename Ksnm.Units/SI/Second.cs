@@ -91,14 +91,6 @@ namespace Ksnm.Units.SI
             return new Second<TNumber>(value);
         }
         #endregion 型変換
-        /// <summary>
-        /// 数値型からQuantityへ変換
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public new static Second<TNumber> From(TNumber value)
-        {
-            return new Second<TNumber>(value);
-        }
+
     }
 }
